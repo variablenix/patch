@@ -1,0 +1,13 @@
+diff -aur barnyard.prestine/src/output-plugins/op_acid_db.c barnyard.new/src/output-plugins/op_acid_db.c
+--- barnyard.prestine/src/output-plugins/op_acid_db.c	2010-06-02 17:07:31.000000000 -0700
++++ barnyard.new/src/output-plugins/op_acid_db.c	2010-06-02 17:24:15.000000000 -0700
+@@ -1236,6 +1236,7 @@
+                 || (mysqlErrno == CR_SERVER_GONE_ERROR))
+         {
+             LogMessage("Lost connection to MySQL server.  Reconnecting\n");
++	    mysql->reconnect=1;
+             while(mysql_ping(mysql) != 0)
+             {
+                 if(BarnyardSleep(15))
+Only in barnyard.new/src/output-plugins: op_acid_db.c~
+Only in barnyard.prestine: src.prestine
